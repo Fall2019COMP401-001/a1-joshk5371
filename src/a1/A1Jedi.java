@@ -53,13 +53,18 @@ public class A1Jedi {
 				itemName[j] = scan.next();
 			}
 			
-			
+			String same = "";
 			for (int k=0; k<items.length; k++) {
 				int a=0;
 				for (int m=0; m<itemName.length; m++) {
 					if (items[k].equals(itemName[m])) {
 						a++;
 						d[k] += amount[m];
+						if (same.equals(itemName[m])) {
+							a--;
+						} else {
+							same = itemName[m];
+						}
 					}
 				}
 				c[k] += a;
