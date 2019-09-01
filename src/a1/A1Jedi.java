@@ -33,6 +33,9 @@ public class A1Jedi {
 		// Array for amount of customers who bought x items
 		int[] c = new int[count];
 		
+		// Array for item totals
+		int[] d = new int[count];
+		
 		for (int i=0; i<spenders; i++) {
 		// Adds each spender's name to the array
 			String firstName = scan.next();
@@ -50,15 +53,18 @@ public class A1Jedi {
 				itemName[j] = scan.next();
 			}
 			
+			
 			for (int k=0; k<items.length; k++) {
 				int a=0;
 				for (int m=0; m<itemName.length; m++) {
 					if (items[k].equals(itemName[m])) {
 						a++;
+						d[k] += amount[m];
 					}
 				}
 				c[k] += a;
 			}
+			
 		}
 
 		
@@ -69,7 +75,7 @@ public class A1Jedi {
 			if (c[i]==0) {
 				System.out.println("No customers bought " + items[i]);
 			} else {
-				System.out.println(c[i] + " customers bought " + "___ " + items[i]);
+				System.out.println(c[i] + " customers bought " + d[i] + " " + items[i]);
 			}
 		}
 	}
